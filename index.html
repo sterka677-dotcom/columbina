@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Колумбина — Дева Лунной тишины</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#0e0c1e; --bg2:#171433; --ink:#ece9fa; --mute:#a9a4c9;
+  --moon:#f3efff; --lav:#b6a6f2; --sea:#7db4e6; --card:rgba(255,255,255,.055); --line:rgba(182,166,242,.22);
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){--bg:#f4f1fc;--bg2:#e6e0f8;--ink:#1c1840;--mute:#5a5586;--moon:#fff;--lav:#6a55d4;--sea:#2f75b8;--card:rgba(255,255,255,.7);--line:rgba(106,85,212,.25);color-scheme:light}
+}
+:root[data-theme="light"]{--bg:#f4f1fc;--bg2:#e6e0f8;--ink:#1c1840;--mute:#5a5586;--moon:#fff;--lav:#6a55d4;--sea:#2f75b8;--card:rgba(255,255,255,.7);--line:rgba(106,85,212,.25);color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 Manrope,system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lav);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.05;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+nav b{font-family:"Cormorant Garamond",serif;font-size:1.4rem;font-weight:600}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav li a{text-decoration:none;color:var(--mute);font-size:.92rem;white-space:nowrap}
+nav li a:hover{color:var(--ink)}
+.theme{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:7px 14px;font:500 .85rem Manrope,sans-serif;cursor:pointer}
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 60px);display:grid;align-items:center;padding:56px 0 80px;
+  background:radial-gradient(ellipse 70% 60% at 72% 40%,color-mix(in srgb,var(--lav) 28%,transparent),transparent 70%),linear-gradient(var(--bg),var(--bg2))}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3.4rem,9vw,7.2rem);letter-spacing:-.02em}
+.hero h1 span{display:block;font-style:italic;font-weight:400;color:var(--lav);font-size:.42em;letter-spacing:0;margin-top:14px}
+.hero p{color:var(--mute);max-width:46ch;margin:22px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.95rem;border:1px solid var(--line);transition:transform .2s,background .2s}
+.btn.main{background:var(--lav);color:#120e2b;border-color:transparent}
+.btn:hover{transform:translateY(-2px)}
+.moonbox{display:grid;justify-items:center;gap:18px}
+.moonbox svg{width:min(100%,420px);height:auto;filter:drop-shadow(0 0 50px color-mix(in srgb,var(--lav) 55%,transparent))}
+.slider{width:min(100%,320px);display:grid;gap:6px;text-align:center;color:var(--mute);font-size:.88rem}
+input[type=range]{width:100%;accent-color:var(--lav)}
+#phaseName{color:var(--ink);font-weight:500}
+.stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--moon);opacity:.6;animation:tw 4s ease-in-out infinite}
+@keyframes tw{50%{opacity:.1}}
+/* sections */
+section{padding:92px 0}
+section h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:18px}
+.lead{color:var(--mute);max-width:60ch;margin:0 0 40px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about p{margin:0 0 16px;color:var(--mute)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.facts dt{color:var(--mute);font-size:.85rem}
+.facts dd{margin:4px 0 0;font-family:"Cormorant Garamond",serif;font-size:1.55rem;font-weight:600}
+.band{background:linear-gradient(var(--bg2),var(--bg))}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab{background:transparent;border:1px solid var(--line);color:var(--mute);border-radius:999px;padding:9px 18px;font:500 .92rem Manrope,sans-serif;cursor:pointer}
+.tab[aria-selected=true]{background:var(--lav);color:#120e2b;border-color:transparent}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:34px;min-height:190px}
+.panel h3{font-size:2rem;margin-bottom:10px}
+.panel p{margin:0;color:var(--mute);max-width:62ch}
+.tl{list-style:none;margin:0;padding:0 0 0 26px;border-left:1px solid var(--line)}
+.tl li{position:relative;padding:0 0 34px 22px}
+.tl li::before{content:"";position:absolute;left:-33px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--lav)}
+.tl h3{font-size:1.6rem;margin-bottom:6px}
+.tl p{margin:0;color:var(--mute);max-width:60ch}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.team div{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+.team h3{font-size:1.6rem;margin-bottom:8px}
+.team p{margin:0;color:var(--mute);font-size:.95rem}
+footer{padding:44px 0 56px;border-top:1px solid var(--line);color:var(--mute);font-size:.86rem}
+@media(max-width:820px){
+  .hero .wrap,.about{grid-template-columns:1fr}
+  .team{grid-template-columns:1fr}
+  .moonbox{order:-1}
+  section{padding:64px 0}
+  nav ul{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <b>Колумбина</b>
+  <ul><li><a href="#about">О персонаже</a></li><li><a href="#play">Геймплей</a></li><li><a href="#story">История</a></li><li><a href="#team">Команды</a></li></ul>
+  <button class="theme" id="theme" type="button">Тема</button>
+</div></nav>
+
+<header class="hero">
+  <div class="stars" aria-hidden="true" id="stars"></div>
+  <div class="wrap">
+    <div>
+      <h1>Колумбина<span>Дева, что говорит голосом луны</span></h1>
+      <p>Фанатская страница о Колумбине из Genshin Impact: Гидро-персонаже с катализатором, Предвестнице Фатуи и одной из главных героинь Нод-Края.</p>
+      <div class="btns"><a class="btn main" href="#about">Узнать больше</a><a class="btn" href="#play">Стиль игры</a></div>
+    </div>
+    <div class="moonbox">
+      <svg viewBox="0 0 200 200" role="img" aria-label="Луна, фаза меняется ползунком">
+        <defs><radialGradient id="g" cx="40%" cy="38%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#cfc4f7"/></radialGradient></defs>
+        <circle cx="100" cy="100" r="86" fill="#1d1a3d" stroke="rgba(182,166,242,.35)"/>
+        <path id="lit" fill="url(#g)"/>
+        <circle cx="100" cy="100" r="95" fill="none" stroke="rgba(182,166,242,.18)"/>
+        <circle cx="100" cy="100" r="104" fill="none" stroke="rgba(182,166,242,.1)"/>
+      </svg>
+      <label class="slider">Сдвиньте, чтобы сменить фазу<input id="phase" type="range" min="0" max="100" value="62"><span id="phaseName"></span></label>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about"><div class="wrap about">
+  <div>
+    <h2>О персонаже</h2>
+    <p>Колумбина носит титул «Дева» и входит в число Предвестников Фатуи. Её образ строится на контрасте: мягкая, почти сказочная манера держаться и вес организации, которую она представляет.</p>
+    <p>В игре она связана с Нод-Краем и лунной темой региона, поэтому её дизайн, цвета и анимации выдержаны в оттенках лунного света и воды.</p>
+  </div>
+  <dl class="facts">
+    <div><dt>Титул</dt><dd>Дева</dd></div>
+    <div><dt>Элемент</dt><dd>Гидро</dd></div>
+    <div><dt>Оружие</dt><dd>Катализатор</dd></div>
+    <div><dt>Редкость</dt><dd>5 звёзд</dd></div>
+    <div><dt>Организация</dt><dd>Фатуи</dd></div>
+    <div><dt>Регион</dt><dd>Нод-Край</dd></div>
+  </dl>
+</div></section>
+
+<section id="play" class="band"><div class="wrap">
+  <h2>Стиль игры</h2>
+  <p class="lead">Колумбина играет от Гидро и лунных реакций. Выберите вкладку, чтобы посмотреть, за что она отвечает в отряде.</p>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+</div></section>
+
+<section id="story"><div class="wrap">
+  <h2>История</h2>
+  <p class="lead">Короткая хронология без спойлеров к сюжету. Подробности смотрите в самой игре.</p>
+  <ol class="tl">
+    <li><h3>Предвестница</h3><p>Колумбина получает место среди Предвестников Фатуи и титул «Дева».</p></li>
+    <li><h3>Нод-Край</h3><p>Действие региона разворачивается вокруг лунных сил, и именно здесь её роль раскрывается полнее всего.</p></li>
+    <li><h3>Игровой дебют</h3><p>Персонаж становится играбельным: Гидро, катализатор, ставка на лунные реакции.</p></li>
+  </ol>
+</div></section>
+
+<section id="team" class="band"><div class="wrap">
+  <h2>С кем играть</h2>
+  <p class="lead">Общие принципы сборки отряда. Конкретные связки зависят от вашего набора персонажей и обновлений игры.</p>
+  <div class="team">
+    <div><h3>Лунный отряд</h3><p>Собирайте героев, которые усиливают лунные реакции: так Колумбина раскрывается лучше всего.</p></div>
+    <div><h3>Гидро-основа</h3><p>Персонаж с другим элементом поможет вызывать реакции с её Гидро.</p></div>
+    <div><h3>Поддержка</h3><p>Исцеление и щиты оставляют ей время на безопасные атаки с дистанции.</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Неофициальная фан-страница. Genshin Impact и все связанные материалы принадлежат HoYoverse. Данные о персонаже могут меняться с обновлениями игры.</div></footer>
+
+<script>
+(function(){
+  var names=["Новолуние","Молодая луна","Первая четверть","Растущая луна","Полнолуние","Убывающая луна","Последняя четверть","Старая луна","Новолуние"];
+  var lit=document.getElementById('lit'),ph=document.getElementById('phase'),pn=document.getElementById('phaseName');
+  function draw(){
+    var p=ph.value/100,r=86,cx=100,cy=100,a=Math.cos(p*2*Math.PI),rx=Math.abs(a)*r;
+    var right=p<=0.5;
+    var top='M'+cx+' '+(cy-r),bot=cx+' '+(cy+r);
+    var d;
+    if(p<0.02||p>0.98){d='';}
+    else{
+      var outer=right?1:0;
+      var inner=(a>0)?(right?0:1):(right?0:1);
+      // right half lit for waxing (p<=.5), left half for waning
+      d=top+' A'+r+' '+r+' 0 0 '+outer+' '+bot+' A'+rx+' '+r+' 0 0 '+((a>0)?(right?0:1):(right?0:1))+' '+(cx)+' '+(cy-r)+'Z';
+      if(right){ d=top+' A'+r+' '+r+' 0 0 1 '+bot+' A'+rx+' '+r+' 0 0 '+(a>0?1:0)+' '+cx+' '+(cy-r)+'Z'; }
+      else{ d=top+' A'+r+' '+r+' 0 0 0 '+bot+' A'+rx+' '+r+' 0 0 '+(a>0?0:1)+' '+cx+' '+(cy-r)+'Z'; }
+    }
+    lit.setAttribute('d',d);
+    pn.textContent=names[Math.round(p*8)];
+  }
+  ph.addEventListener('input',draw);draw();
+
+  var data=[
+    ["Гидро-урон","Основной элемент Колумбины — Гидро. Она наносит урон водой и подходит отрядам, где важны реакции с участием этого элемента."],
+    ["Лунные реакции","Её дизайн и роль связаны с лунной механикой Нод-Края. Собирайте отряд так, чтобы реакции срабатывали часто."],
+    ["Катализатор","Колумбина атакует с дистанции. Это безопаснее ближнего боя, но требует следить за позицией и временем способностей."]
+  ];
+  var tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
+  data.forEach(function(x,i){
+    var b=document.createElement('button');b.className='tab';b.type='button';b.setAttribute('role','tab');b.textContent=x[0];
+    b.onclick=function(){sel(i)};tabs.appendChild(b);
+  });
+  function sel(i){
+    [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-selected',j===i)});
+    panel.innerHTML='<h3></h3><p></p>';panel.firstChild.textContent=data[i][0];panel.lastChild.textContent=data[i][1];
+  }
+  sel(0);
+
+  var st=document.getElementById('stars'),h='';
+  for(var i=0;i<46;i++){h+='<i style="left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*100).toFixed(1)+'%;animation-delay:'+(Math.random()*4).toFixed(1)+'s"></i>'}
+  st.innerHTML=h;
+
+  var root=document.documentElement,btn=document.getElementById('theme');
+  btn.onclick=function(){
+    var dark=root.getAttribute('data-theme')?root.getAttribute('data-theme')==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+    root.setAttribute('data-theme',dark?'light':'dark');
+  };
+})();
+</script>
+</body>
+</html>
